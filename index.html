@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alpha Code - Soluções de Engenharia Digital</title>
   
+  <!-- ÍCONE NA ABA DO NAVEGADOR (FAVICON) -->
+  <link rel="icon" type="image/png" href="EMBLEMA ALPHA CODE.png">
+  
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -41,7 +44,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 8%;
+      padding: 1rem 8%;
       background: rgba(11, 15, 25, 0.85);
       backdrop-filter: blur(12px);
       z-index: 1000;
@@ -49,7 +52,20 @@
     }
 
     .logo {
-      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      font-size: 1.4rem;
       font-weight: 700;
       color: var(--text-main);
       letter-spacing: 1px;
@@ -326,9 +342,12 @@
 </head>
 <body>
 
-  <!-- CABEÇALHO -->
+  <!-- CABEÇALHO COM LOGO -->
   <header>
-    <div class="logo">Alpha Code</div>
+    <a href="#" class="logo">
+      <img src="EMBLEMA ALPHA CODE.png" alt="Emblema Alpha Code" class="logo-img">
+      <span class="logo-text">Alpha Code</span>
+    </a>
     <button id="btn-mobile">☰</button>
     <ul id="nav-menu">
       <li><a href="#sobre">Sobre Nós</a></li>
@@ -349,7 +368,7 @@
   <section id="sobre">
     <h2>Sobre a Alpha Code</h2>
     <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--text-muted);">
-      A Alpha Code é especializada em engenharia de software focada na resolução de problemas complexos do mundo real. Unimos arquitetura escalável, automação de dados e design moderno para entregar plataformas customizadas que otimizam processos e alavancam o crescimento corporativo.
+      A Alpha Code é uma casa de engenharia de software focada na resolução de problemas complexos do mundo real. Unimos arquitetura escalável, automação de dados e design moderno para entregar plataformas customizadas que otimizam processos e alavancam o crescimento corporativo.
     </p>
   </section>
 
@@ -401,7 +420,7 @@
       </div>
 
       <!-- FORMULÁRIO FORMSPREE -->
-      <form action="https://formspree.io/f/meaqljpk" method="POST" class="form-tech">
+      <form action="https://formspree.io/f/seu-id-formspree" method="POST" class="form-tech">
         <div class="form-group">
           <label for="nome">Nome / Empresa</label>
           <input type="text" id="nome" name="nome" placeholder="Seu nome ou o da sua empresa" required>
