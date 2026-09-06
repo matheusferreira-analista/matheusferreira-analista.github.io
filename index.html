@@ -1,440 +1,441 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alpha Code - Soluções de Engenharia Digital</title>
-    <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpha Code - Soluções de Engenharia Digital</title>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-  :root {
-    --primary-color: #00bfff;
-    --primary-hover: #009acd;
-    --bg-dark: #0b0f19;
-    --card-bg: rgba(15, 23, 42, 0.75);
-    --text-main: #ffffff;
-    --text-muted: #94a3b8;
-    --border-color: rgba(255, 255, 255, 0.1);
-  }
+    :root {
+      --primary-color: #00bfff;
+      --primary-hover: #009acd;
+      --bg-dark: #0b0f19;
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --text-main: #ffffff;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.1);
+    }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
 
-  body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 8%;
-    background: rgba(11, 15, 25, 0.85);
-    backdrop-filter: blur(12px);
-    z-index: 1000;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-main);
-    letter-spacing: 1px;
-  }
-
-  #btn-mobile {
-    display: none;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-
-  #nav-menu {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  #nav-menu a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-
-  #nav-menu a:hover {
-    color: var(--primary-color);
-  }
-
-  #hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 8rem 8% 4rem;
-    background: linear-gradient(180deg, rgba(11, 15, 25, 0.7) 0%, rgba(11, 15, 25, 0.95) 100%), url('fundo-tech.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-  }
-
-  #hero h1 {
-    font-size: 2.8rem;
-    max-width: 900px;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-  }
-
-  #hero p {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    max-width: 700px;
-    margin-bottom: 2.5rem;
-  }
-
-  .btn-cta {
-    display: inline-block;
-    padding: 1rem 2.2rem;
-    background-color: var(--primary-color);
-    color: #000;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
-  }
-
-  .btn-cta:hover {
-    background-color: var(--primary-hover);
-    box-shadow: 0 0 30px rgba(0, 191, 255, 0.7);
-    transform: translateY(-2px);
-  }
-
-  section {
-    padding: 6rem 8%;
-  }
-
-  h2 {
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    position: relative;
-  }
-
-  h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: var(--primary-color);
-    margin: 0.8rem auto 0;
-    border-radius: 2px;
-  }
-
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-
-  .card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 2.5rem 1.8rem;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-  }
-
-  .card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
-  }
-
-  .card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-  }
-
-  .card p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-  }
-
-  @media (max-width: 768px) {
-    #btn-mobile { display: block; }
-    #nav-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
+    /* --- CABEÇALHO E NAVEGAÇÃO --- */
+    header {
+      position: fixed;
+      top: 0;
       left: 0;
       width: 100%;
-      background: rgba(11, 15, 25, 0.95);
-      flex-direction: column;
-      padding: 1.5rem;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 8%;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
       border-bottom: 1px solid var(--border-color);
     }
-    #nav-menu.active { display: flex; }
-    #hero h1 { font-size: 2rem; }
-    #hero p { font-size: 1rem; }
-  }
-/* --- ESTILIZAÇÃO COMPLETA DE CONTATO --- */
-.contato-container {
-  max-width: 650px;
-  margin: 2rem auto 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
 
-.card-whats {
-  background: rgba(15, 23, 42, 0.75);
-  border: 1px solid var(--border-color);
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-  backdrop-filter: blur(10px);
-}
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 1px;
+    }
 
-.card-whats p {
-  color: var(--text-muted);
-  margin-bottom: 1.2rem;
-  font-size: 1.05rem;
-}
+    #btn-mobile {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
 
-.btn-whats {
-  display: inline-block;
-  width: 100%;
-  padding: 1rem;
-  background-color: #25d366;
-  color: #fff;
-  font-weight: 700;
-  text-decoration: none;
-  border-radius: 8px;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
-}
+    #nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
 
-.btn-whats:hover {
-  background-color: #1eb954;
-  transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
-}
+    #nav-menu a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
 
-.form-tech {
-  background: rgba(15, 23, 42, 0.75);
-  border: 1px solid var(--border-color);
-  padding: 2.5rem;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
+    #nav-menu a:hover {
+      color: var(--primary-color);
+    }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  text-align: left;
-}
+    /* --- BANNER PRINCIPAL (HERO) --- */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 8% 4rem;
+      background: linear-gradient(180deg, rgba(11, 15, 25, 0.7) 0%, rgba(11, 15, 25, 0.95) 100%), url('fundo-tech.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
 
-.form-group label {
-  color: var(--text-main);
-  font-size: 0.95rem;
-  font-weight: 600;
-}
+    #hero h1 {
+      font-size: 2.8rem;
+      max-width: 900px;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
 
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 0.9rem 1.2rem;
-  background: rgba(11, 15, 25, 0.8);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  color: #fff;
-  font-size: 0.95rem;
-  outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
+    #hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin-bottom: 2.5rem;
+    }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
-}
+    .btn-cta {
+      display: inline-block;
+      padding: 1rem 2.2rem;
+      background-color: var(--primary-color);
+      color: #000;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+    }
 
-.btn-enviar {
-  width: 100%;
-  padding: 1rem;
-  background-color: var(--primary-color);
-  color: #000;
-  border: none;
-  border-radius: 6px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  cursor: pointer;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
-}
+    .btn-cta:hover {
+      background-color: var(--primary-hover);
+      box-shadow: 0 0 30px rgba(0, 191, 255, 0.7);
+      transform: translateY(-2px);
+    }
 
-.btn-enviar:hover {
-  background-color: var(--primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(0, 191, 255, 0.5);
-}
+    /* --- SEÇÕES GERAIS --- */
+    section {
+      padding: 6rem 8%;
+    }
 
-footer {
-  text-align: center;
-  padding: 2rem 8%;
-  background: rgba(11, 15, 25, 0.95);
-  border-top: 1px solid var(--border-color);
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-</style>
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--primary-color);
+      margin: 0.8rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* --- CARDS COM GLASSMORPHISM --- */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 2.5rem 1.8rem;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* --- ESTILIZAÇÃO DA SEÇÃO DE CONTATO --- */
+    .contato-container {
+      max-width: 650px;
+      margin: 2rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .card-whats {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .card-whats p {
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+    }
+
+    .btn-whats {
+      display: inline-block;
+      width: 100%;
+      padding: 1rem;
+      background-color: #25d366;
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-whats:hover {
+      background-color: #1eb954;
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
+    }
+
+    .form-tech {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 2.5rem;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      background: rgba(11, 15, 25, 0.8);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+    }
+
+    .btn-enviar {
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--primary-color);
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+    }
+
+    .btn-enviar:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(0, 191, 255, 0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 8%;
+      background: rgba(11, 15, 25, 0.95);
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* --- RESPONSIVIDADE --- */
+    @media (max-width: 768px) {
+      #btn-mobile { display: block; }
+      #nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(11, 15, 25, 0.95);
+        flex-direction: column;
+        padding: 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+      }
+      #nav-menu.active { display: flex; }
+      #hero h1 { font-size: 2rem; }
+      #hero p { font-size: 1rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- CABEÇALHO E MENU -->
-    <header>
-        <div class="logo">Alpha Code</div>
-        
-        <button id="btn-mobile">☰</button>
-        
-        <nav id="nav-menu">
-            <ul>
-                <li><a href="#sobre">Sobre Nós</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#portfolio">Cases de Sucesso</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- CABEÇALHO -->
+  <header>
+    <div class="logo">Alpha Code</div>
+    <button id="btn-mobile">☰</button>
+    <ul id="nav-menu">
+      <li><a href="#sobre">Sobre Nós</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#cases">Cases de Sucesso</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </header>
 
-    <main>
-        <!-- SEÇÃO HERO -->
-        <section id="hero">
-            <h1>Transformando gargalos operacionais em software de alta performance</h1>
-            <p>Desenvolvemos automações e plataformas robustas que reduzem custos operacionais, mitigam erros humanos e entregam dados precisos em tempo real para a sua tomada de decisão.</p>
-            <a href="#contato" class="btn-cta">Fale com um Desenvolvedor</a>
-        </section>
+  <!-- BANNER PRINCIPAL (HERO) -->
+  <section id="hero">
+    <h1>Transformando gargalos operacionais em software de alta performance</h1>
+    <p>Desenvolvemos automações e plataformas robustas que reduzem custos operacionais, mitigam erros humanos e entregam dados precisos em tempo real para a sua tomada de decisão.</p>
+    <a href="#contato" class="btn-cta">Fale com um Desenvolvedor</a>
+  </section>
 
-        <!-- SEÇÃO SOBRE NÓS -->
-        <section id="sobre">
-            <h2>Sobre a Alpha Code</h2>
-            <p>A Alpha Code é especializada em engenharia de software focada na resolução de problemas complexos do mundo real. Unimos arquitetura escalável, automação de dados e design moderno para entregar plataformas customizadas que otimizam processos e alavancam o crescimento corporativo.</p>
-        </section>
+  <!-- SOBRE NÓS -->
+  <section id="sobre">
+    <h2>Sobre a Alpha Code</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--text-muted);">
+      A Alpha Code é uma casa de engenharia de software focada na resolução de problemas complexos do mundo real. Unimos arquitetura escalável, automação de dados e design moderno para entregar plataformas customizadas que otimizam processos e alavancam o crescimento corporativo.
+    </p>
+  </section>
 
-        <!-- SEÇÃO SERVIÇOS -->
-        <section id="servicos">
-            <h2>Nossas Soluções</h2>
-            <ul>
-                <li>
-                    <h3>Automação de Processos e Gestão</h3>
-                    <p>Eliminamos o desperdício de tempo e os erros humanos da sua operação. Desenvolvemos fluxos automatizados de gestão — desde o controle rigoroso de inventário até rotinas operacionais — garantindo eficiência, redução drástica de custos e segurança absoluta para a sua cadeia produtiva.</p>
-                </li>
-                <li>
-                    <h3>Sistemas Web Customizados</h3>
-                    <p>Esqueça soluções de prateleira que limitam o seu crescimento. Projetamos e desenvolvemos plataformas web sob medida, com arquitetura escalável e alta performance. Entregamos o software exato que a sua empresa exige para funcionar sem gargalos e com total controle.</p>
-                </li>
-                <li>
-                    <h3>Inteligência de Negócios (BI)</h3>
-                    <p>Transformamos dados brutos em poder de decisão. Construímos dashboards dinâmicos e painéis de controle precisos que traduzem a saúde da sua empresa em tempo real, permitindo uma gestão estratégica baseada em métricas reais, e não em intuição.</p>
-                </li>
-            </ul>
-        </section>
-
-        <!-- SEÇÃO PORTFÓLIO / CASES DE SUCESSO -->
-        <section id="portfolio">
-            <h2>O que já construímos</h2>
-            
-            <div class="cases-container">
-                <article class="case-card">
-                    <div class="case-info">
-                        <span class="tag-categoria">Automação & Processamento de Dados</span>
-                        <h3>SmartDoc Validator - Auditoria de Documentos</h3>
-                        <p><strong>O Desafio:</strong> Erros de digitação e inconsistências no processamento manual de faturas e notas fiscais em lote, gerando gargalos operacionais e falhas financeiras.</p>
-                        <p><strong>A Solução:</strong> Motor de validação automatizado desenvolvido em Python e Streamlit. A ferramenta realiza auditoria em tempo real, validando CNPJs, valores monetários e impondo rigorosamente a padronização de datas no formato nacional (DD-MM-YYYY) para garantir a integridade dos dados antes da entrada no sistema.</p>
-                        
-                        <div class="tecnologias">
-                            <span>Python</span>
-                            <span>Streamlit</span>
-                            <span>Pandas</span>
-                            <span>Engenharia de Dados</span>
-                        </div>
-                        
-                        <a href="https://github.com/matheusferreira-analista/smart-doc-validator" target="_blank" class="btn-case">Ver Repositório Técnico</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- SEÇÃO CONTATO -->
-<!-- SEÇÃO DE CONTATO E ORÇAMENTO -->
-<section id="contato">
-  <h2>Inicie seu Projeto</h2>
-  
-  <div class="contato-container">
-    <!-- OPÇÃO WHATSAPP -->
-    <div class="card-whats">
-      <p>Prefere um atendimento imediato via mensagem?</p>
-      <a href="https://wa.me/5522981152462?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20empresa." target="_blank" class="btn-whats">
-        📱 FALAR NO WHATSAPP
-      </a>
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <h2>Nossas Soluções</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <h3>Automação de Processos e Gestão</h3>
+        <p>Eliminamos o desperdício de tempo e os erros humanos da sua operação. Desenvolvemos fluxos automatizados de gestão — desde o controle rigoroso de inventário até rotinas operacionais — garantindo eficiência, redução drástica de custos e segurança absoluta para a sua cadeia produtiva.</p>
+      </div>
+      <div class="card">
+        <h3>Sistemas Web Customizados</h3>
+        <p>Esqueça soluções de prateleira que limitam o seu crescimento. Projetamos e desenvolvemos plataformas web sob medida, com arquitetura escalável e alta performance. Entregamos o software exato que a sua empresa precisa para operar com máxima velocidade.</p>
+      </div>
+      <div class="card">
+        <h3>Integrações e Inteligência de Dados</h3>
+        <p>Conectamos seus sistemas legados, bancos de dados e APIs para criar fluxos contínuos de informação. Estruturamos dashboards e relatórios inteligentes que transformam dados brutos em insights estratégicos para a tomada de decisão da sua diretoria.</p>
+      </div>
     </div>
+  </section>
 
-    <!-- FORMULÁRIO FORMSPREE -->
-    <form action="https://formspree.io/f/seu-id-formspree" method="POST" class="form-tech">
-      <div class="form-group">
-        <label for="nome">Nome / Empresa</label>
-        <input type="text" id="nome" name="nome" placeholder="Seu nome ou o da sua empresa" required>
+  <!-- CASES DE SUCESSO -->
+  <section id="cases">
+    <h2>Cases de Sucesso</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <h3>SmartDoc Validator</h3>
+        <p>Ferramenta inteligente para extração e validação automática de dados em faturas e comprovantes em PDF/imagem, reduzindo o tempo de conferência manual e eliminando inconsistências fiscais.</p>
+      </div>
+      <div class="card">
+        <h3>Gestão de Inventário Inteligente</h3>
+        <p>Sistema completo para controle de estoque com leitura de código de barras, rastreabilidade de validade no padrão nacional e dashboards em tempo real para tomada de decisão ágil.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO E ORÇAMENTO -->
+  <section id="contato">
+    <h2>Inicie seu Projeto</h2>
+    
+    <div class="contato-container">
+      <!-- BOTÃO WHATSAPP -->
+      <div class="card-whats">
+        <p>Prefere um atendimento imediato via mensagem?</p>
+        <a href="https://wa.me/5522981152462?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20empresa." target="_blank" class="btn-whats">
+          📱 FALAR NO WHATSAPP
+        </a>
       </div>
 
-      <div class="form-group">
-        <label for="email">E-mail Corporativo</label>
-        <input type="email" id="email" name="email" placeholder="seuemail@empresa.com" required>
-      </div>
+      <!-- FORMULÁRIO FORMSPREE -->
+      <form action="https://formspree.io/f/seu-id-formspree" method="POST" class="form-tech">
+        <div class="form-group">
+          <label for="nome">Nome / Empresa</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome ou o da sua empresa" required>
+        </div>
 
-      <div class="form-group">
-        <label for="mensagem">Como podemos ajudar?</label>
-        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva os gargalos da sua operação ou o software que precisa desenvolver..." required></textarea>
-      </div>
+        <div class="form-group">
+          <label for="email">E-mail Corporativo</label>
+          <input type="email" id="email" name="email" placeholder="seuemail@empresa.com" required>
+        </div>
 
-      <button type="submit" class="btn-enviar">ENVIAR MENSAGEM POR E-MAIL</button>
-    </form>
-  </div>
-</section>
+        <div class="form-group">
+          <label for="mensagem">Como podemos ajudar?</label>
+          <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva os gargalos da sua operação ou o software que precisa desenvolver..." required></textarea>
+        </div>
 
-<!-- RODAPÉ -->
-<footer>
-  <p>&copy; 2026 Alpha Code. Todos os direitos reservados.</p>
-</footer>
+        <button type="submit" class="btn-enviar">ENVIAR MENSAGEM POR E-MAIL</button>
+      </form>
+    </div>
+  </section>
 
-    <!-- SCRIPT JS -->
-    <script src="script.js"></script>
+  <!-- RODAPÉ -->
+  <footer>
+    <p>&copy; 2026 Alpha Code. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- SCRIPT MENU MOBILE -->
+  <script>
+    const btnMobile = document.getElementById('btn-mobile');
+    const navMenu = document.getElementById('nav-menu');
+
+    btnMobile.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
+
 </body>
 </html>
